@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { sedan, sedanSC } from './fonts/fonts';
 
 export const metadata: Metadata = {
   title: 'El Santuario',
@@ -11,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' className={`${sedanSC.className} ${sedan.className}`}>
       <body>{children}</body>
     </html>
   );
