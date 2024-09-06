@@ -2,7 +2,7 @@ import Link from "next/link";
 import Button from "@/components/buttons/Button";
 import style from './form.module.scss';
 
-export default function LoginForm() {
+export default function RegisterForm() {
   return (
     <form action="" className={style.loginForm}>
       <h3 className="title">Únete al santuario</h3>
