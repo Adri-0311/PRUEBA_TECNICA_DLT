@@ -1,0 +1,17 @@
+@import '@/styles/variables';
+
+.primaryButton {
+  background: $primary-color;
+  padding: 20px 80px;
+  border-radius: 12px;
+  color: white;
+  font-variant-caps: small-caps;
+  font-family: 'Sedan SC';
+  font-size: $font-size-normal;
+  width: fit-content;
+
+  &:hover {
+    background: rgba($primary-color, 0.9) ;
+    cursor: pointer;
+  }
+}

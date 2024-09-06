@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { sedan, sedanSC } from './fonts/fonts';
+import '@/styles/global.scss';
 
 export const metadata: Metadata = {
   title: 'El Santuario',
