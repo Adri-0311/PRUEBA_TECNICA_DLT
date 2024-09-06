@@ -1,0 +1,36 @@
+@import '@/styles/variables';
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 0px;
+
+	h1 {
+		color: $secondary-color;
+		font-variant-caps: small-caps;
+		font-family: 'Sedan SC';
+		font-size: $font-size-title-nav;
+	}
+
+	.links {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.item {
+		padding: 10px;
+		border-radius: 12px;
+		color: $dark-color;
+		font-variant-caps: small-caps;
+		font-family: 'Sedan SC';
+		font-size: $font-size-links-nav;
+		margin-bottom: 0;
+
+		&.active,
+		&:hover {
+			background: rgba($primary-color, 0.1);
+		}
+	}
+}
