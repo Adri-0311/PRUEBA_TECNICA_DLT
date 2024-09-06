@@ -148,14 +148,6 @@ button {
 	margin-bottom: 24px;
 }
 
-.subtitle {
-	color: $secondary-color;
-	font-size: $font-size-subtitle;
-	font-family: $font-sedan-sc;
-	font-variant-caps: small-caps;
-	margin-bottom: 20px;
-}
-
 /* Paragraph */
 p {
 	color: $light-color;
@@ -182,7 +174,7 @@ input {
 	color: $light-color;
 	font-family: $font-sedan;
 	font-size: $font-size-normal;
-	margin-top: 8px;
+	margin-top: 12px;
 	box-sizing: border-box;
 	&::placeholder {
 		color: $light-color;
