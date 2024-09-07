@@ -130,6 +130,7 @@ table {
 	border-spacing: 0;
 }
 /* END */
+
 a {
 	color: inherit;
 	text-decoration: none;
@@ -153,7 +154,7 @@ p {
 	color: $light-color;
 	font-size: $font-size-normal;
 	font-family: $font-sedan;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 	line-height: 18px;
 }
 
@@ -174,7 +175,6 @@ input {
 	color: $light-color;
 	font-family: $font-sedan;
 	font-size: $font-size-normal;
-	margin-top: 12px;
 	box-sizing: border-box;
 	&::placeholder {
 		color: $light-color;
@@ -183,22 +183,50 @@ input {
 	}
 }
 
+input[type='checkbox'] {
+	box-sizing: border-box;
+	width: 16px;
+	height: 16px;
+	margin: 1px;
+	margin-right: 6px;
+	padding: 0;
+	border: 1px solid $primary-color;
+	appearance: none;
+	border-radius: 0;
+
+	&:checked {
+		background-size: cover;
+		padding: 2px;
+		background-color: $primary-color;
+		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 32 32" xml:space="preserve"><path style="fill: white" d="M11.941,28.877l-11.941-11.942l5.695-5.696l6.246,6.246l14.364-14.364L32,8.818"/></svg>');
+	}
+}
+
 select {
 	appearance: none;
-	background: rgba($light-color, 0.05);
+	background-color: rgba($light-color, 0.05);
+	// background-image: url(../icons/arrow-down.svg);
+	// background-position: 94% 50% ;
+	// background-repeat: no-repeat;
+	background-size: 20px 20px;
+	color: $light-color;
 	padding: 1rem 2rem;
 	border-radius: 12px;
 	border: none;
 	width: 100%;
-	color: $light-color;
 	font-family: $font-sedan;
 	font-size: $font-size-normal;
-	margin-top: 8px;
 	cursor: pointer;
 
 	&::after {
 		content: '';
 	}
+}
+
+.form-element {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .footer-form {
@@ -207,6 +235,23 @@ select {
 	font-family: $font-sedan;
 }
 
+.relative {
+	position: relative;
+}
+
 .m-auto {
 	margin: auto;
+}
+
+.icon-style {
+	width: 20px;
+	height: 20px;
+	color: $light-color;
+}
+
+.icon-position {
+	position: absolute;
+	top: 50%;
+	right: 30px;
+	transform: translateY(-50%);
 }

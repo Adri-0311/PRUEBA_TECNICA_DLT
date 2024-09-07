@@ -1,20 +1,19 @@
-import Image from "next/image";
-import LoginForm from "@/components/forms/login-form";
+import Image from 'next/image';
+import LoginForm from '@/components/forms/LoginForm';
 
 export default function LoginPage() {
-  return (
-    <main className='loginRegister'>
-      <div className='imageContainer'>
-        <Image
-          className='imageLeft'
-          src="/login.png"
-          fill
-          alt="Mythological deer"
-        />
-      </div>
-      <div className='formContainer'>
-        <LoginForm />
-      </div>
-    </main>
-  )
+	return (
+		<div className='loginRegister'>
+			<Image
+				className='imgLeft'
+				src='/login.png'
+				width={2048}
+				height={2048}
+				alt='Mythological deer'
+			/>
+			<main className='formContainer'>
+				<LoginForm />
+			</main>
+		</div>
+	);
 }
