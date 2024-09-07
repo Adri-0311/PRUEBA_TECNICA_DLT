@@ -1,0 +1,59 @@
+@import '@/styles/variables';
+
+.container {
+	display: flex;
+	gap: 20px;
+}
+.containerSearchTable {
+	max-width: 600px;
+	width: 100%;
+}
+
+.table {
+	width: 100%;
+	text-align: left;
+
+	th,
+	td {
+		text-align: left;
+	}
+
+	th:first-child {
+		width: 40%;
+	}
+	th:not(:first-child) {
+		width: 15%;
+	}
+
+	th {
+		color: $primary-color;
+		border-bottom: 2px solid $primary-color;
+		padding: 20px 0;
+	}
+
+	tbody {
+		tr:first-child {
+			td {
+				padding-top: 30px;
+			}
+		}
+	}
+
+	td {
+		div {
+			display: flex;
+			gap: 10px;
+			width: 100%;
+		}
+	}
+
+	td {
+		color: $light-color;
+		border-bottom: 2px solid $light-color;
+		padding: 15px 0;
+		vertical-align: middle;
+		&:first-child {
+			padding-left: 8px;
+		}
+	}
+}
