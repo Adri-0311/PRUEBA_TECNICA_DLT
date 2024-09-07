@@ -1,0 +1,26 @@
+main {
+	flex-grow: 1;
+}
+
+.header {
+	max-width: 550px;
+}
+
+.flex {
+	display: flex;
+	gap: 30px;
+}
+
+.imgLeft {
+	width: 20%;
+	height: 100vh;
+	object-fit: cover;
+}
+
+.mb-30 {
+	margin-bottom: 30px;
+}
+
+.w-100 {
+	width: 100%;
+}

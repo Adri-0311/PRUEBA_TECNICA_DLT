@@ -1,3 +1,4 @@
+import ArrowDownIcon from '@/icons/ArrowDownIcon';
 import style from './perfil-form.module.scss';
 
 export default function PerfilForm() {
@@ -6,7 +7,7 @@ export default function PerfilForm() {
 			action=''
 			className={style.perfilForm}>
 			{/* NAME */}
-			<div>
+			<div className='form-element'>
 				<label htmlFor='name'>Nombre Mágico</label>
 				<div>
 					<input
@@ -20,7 +21,7 @@ export default function PerfilForm() {
 			</div>
 
 			{/* MAIL */}
-			<div>
+			<div className='form-element'>
 				<label htmlFor='email'>Correo Mágico</label>
 				<div>
 					<input
@@ -34,9 +35,10 @@ export default function PerfilForm() {
 			</div>
 
 			{/* ROL */}
-			<div>
+			<div className='form-element'>
 				<label htmlFor='rol'>Rol</label>
-				<div>
+				<div className='relative'>
+					<ArrowDownIcon className='icon-style icon-position' />
 					<select
 						id='rol'
 						name='rol'
@@ -50,15 +52,13 @@ export default function PerfilForm() {
 			</div>
 
 			{/* DESCRIPTION */}
-			<div>
+			<div className='form-element'>
 				<label htmlFor='description'>Descripción</label>
 				<div>
-					<input
+					<textarea
 						id='description'
-						type='empasswordail'
 						name='description'
-						placeholder='Añade tu descripción'
-					/>
+						placeholder='Añade tu descripción'></textarea>
 				</div>
 			</div>
 		</form>
