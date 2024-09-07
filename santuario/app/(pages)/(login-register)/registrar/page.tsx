@@ -1,5 +1,5 @@
+import RegisterForm from '@/components/forms/RegisterForm';
 import Image from 'next/image';
-import LoginForm from '@/components/forms/RegisterForm';
 
 export default function RegisterPage() {
 	return (
@@ -12,7 +12,7 @@ export default function RegisterPage() {
 				alt='Mythological grypho'
 			/>
 			<main className='formContainer'>
-				<LoginForm />
+				<RegisterForm />
 			</main>
 		</div>
 	);
