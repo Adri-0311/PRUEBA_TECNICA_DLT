@@ -1,0 +1,24 @@
+.formContent {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 30px;
+}
+
+.textCenter {
+	text-align: center;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+}
+
+.checkboxContainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.end {
+	justify-content: end;
+}
