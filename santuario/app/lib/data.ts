@@ -32,6 +32,22 @@ export async function fetchCriaturaByID(id: string) {
 	}
 }
 
+export async function fetchCountCriaturas() {
+	// Connect with MongoDB
+	await dbConnect();
+
+	try {
+		const count = await criaturaModel.countDocuments({});
+
+		console.log('fetchCountCriaturas:', count);
+
+		return count;
+	} catch (error) {
+		console.log('Data base error:', error);
+		// throw new Error('Failed to fetch criatures count.');
+	}
+}
+
 // export async function fetchCriaturaByName(name: string) {
 // 	// Connect with MongoDB
 // 	await dbConnect();

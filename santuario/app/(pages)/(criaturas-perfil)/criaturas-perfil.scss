@@ -11,10 +11,18 @@ main {
 	gap: 30px;
 }
 
+.align-center {
+	align-items: center;
+}
+
 .imgLeft {
 	width: 20%;
 	height: 100vh;
 	object-fit: cover;
+}
+
+.m-0 {
+	margin: 0;
 }
 
 .mb-30 {
