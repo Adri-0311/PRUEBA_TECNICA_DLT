@@ -1,13 +1,21 @@
 import EditForm from '@/components/forms/EditForm';
-import { fetchCriaturaByID } from '@/lib/data';
+import { fetchCriaturaByID, fetchTiposCriaturas } from '@/lib/data';
 import { notFound } from 'next/navigation';
 
 export default async function EditPage({ params }: { params: { id: string } }) {
-	const criatura = await fetchCriaturaByID(params.id);
+	const [criatura, tiposCriatura] = await Promise.all([
+		fetchCriaturaByID(params.id),
+		fetchTiposCriaturas(),
+	]);
 
-	if(!criatura){
-    notFound();
-  }
+	if (!criatura) {
+		notFound();
+	}
 
-	return <EditForm criatura={criatura} />;
+	return (
+		<EditForm
+			criatura={criatura}
+			tiposCriatura={tiposCriatura}
+		/>
+	);
 }

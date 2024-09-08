@@ -1,12 +1,14 @@
-import { fetchCriaturas } from '@/lib/data';
+import { ICriatura } from '@/lib/db/models/criatura.model';
 import { DeleteCreature, UpdateCreature } from '../buttons/ButtonsCriaturas';
 import FilterForm from '../forms/FilterForm';
 import Search from '../search/Search';
 import style from './criaturas-table.module.scss';
 
-export default async function CriaturasTabla() {
-	const criaturas = await fetchCriaturas();
-
+export default function CriaturasTabla({
+	criaturas,
+}: {
+	criaturas: ICriatura[];
+}) {
 	return (
 		<div className={style.container}>
 			<FilterForm />

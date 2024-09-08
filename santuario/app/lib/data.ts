@@ -1,5 +1,23 @@
 import dbConnect from './db/dbConnect';
 import criaturaModel, { ICriatura } from './db/models/criatura.model';
+import tipoCriaturaModel, {
+	ITipoCriatura,
+} from './db/models/tipoCriatura.model';
+
+export async function fetchTiposCriaturas() {
+	// Connect with MongoDB
+	await dbConnect();
+
+	try {
+		const tipos = await tipoCriaturaModel.find<ITipoCriatura>();
+		console.log('Get tipos criaturas from DB:', tipos);
+
+		return tipos;
+	} catch (error) {
+		console.log('Data base error:', error);
+		throw new Error('Failed to fetch tipos criatures data.');
+	}
+}
 
 export async function fetchCriaturas() {
 	// Connect with MongoDB

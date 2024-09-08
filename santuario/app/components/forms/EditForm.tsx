@@ -3,10 +3,15 @@ import { updateCreature } from '@/lib/action';
 import { ICriatura } from '@/lib/db/models/criatura.model';
 import Button from '../buttons/Button';
 import style from './crate-edit-form.module.scss';
+import { ITipoCriatura } from '@/lib/db/models/tipoCriatura.model';
 
-const tipos = ['Dragón', 'Fénix', 'Golem', 'Grifo', 'Vampiro'];
-
-export default function EditForm({ criatura }: { criatura: ICriatura }) {
+export default function EditForm({
+	criatura,
+	tiposCriatura,
+}: {
+	criatura: ICriatura;
+	tiposCriatura: ITipoCriatura[];
+}) {
 	const updateCreatureByID = updateCreature.bind(null, criatura.id);
 
 	return (
@@ -41,12 +46,12 @@ export default function EditForm({ criatura }: { criatura: ICriatura }) {
 							id='tipo'
 							name='tipo'
 							defaultValue={criatura.tipo}>
-							{tipos.map((tipo, key) => {
+							{tiposCriatura.map((tipoCriatura) => {
 								return (
 									<option
-										key={key}
-										value={tipo}>
-										{tipo}
+										key={tipoCriatura.id}
+										value={tipoCriatura.name}>
+										{tipoCriatura.name}
 									</option>
 								);
 							})}

@@ -2,10 +2,13 @@ import ArrowDownIcon from '@/icons/ArrowDownIcon';
 import { addCreature } from '@/lib/action';
 import Button from '../buttons/Button';
 import style from './crate-edit-form.module.scss';
+import { ITipoCriatura } from '@/lib/db/models/tipoCriatura.model';
 
-const tipos = ['Dragón', 'Fénix', 'Golem', 'Grifo', 'Vampiro'];
-
-export default function CreateForm() {
+export default function CreateForm({
+	tiposCriatura,
+}: {
+	tiposCriatura: ITipoCriatura[];
+}) {
 	return (
 		<form
 			action={addCreature}
@@ -40,12 +43,12 @@ export default function CreateForm() {
 							id='tipo'
 							name='tipo'
 							defaultValue='cuidador'>
-							{tipos.map((tipo, key) => {
+							{tiposCriatura.map((tipoCriatura) => {
 								return (
 									<option
-										key={key}
-										value={tipo}>
-										{tipo}
+										key={tipoCriatura.id}
+										value={tipoCriatura.name}>
+										{tipoCriatura.name}
 									</option>
 								);
 							})}
