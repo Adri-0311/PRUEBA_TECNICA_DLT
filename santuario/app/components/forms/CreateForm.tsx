@@ -33,7 +33,7 @@ export default function CreateForm() {
 
 				{/* TIPO */}
 				<div className='form-element'>
-					<label htmlFor='tipo'>Rol</label>
+					<label htmlFor='tipo'>Tipo de criatura</label>
 					<div className='relative'>
 						<ArrowDownIcon className='icon-style icon-position' />
 						<select
@@ -55,7 +55,7 @@ export default function CreateForm() {
 
 				{/* NIVEL */}
 				<div className='form-element'>
-					<label htmlFor='nivel'>Correo Mágico</label>
+					<label htmlFor='nivel'>Nivel de poder</label>
 					<div>
 						<input
 							id='nivel'

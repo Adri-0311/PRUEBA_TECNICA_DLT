@@ -10,11 +10,9 @@ export default function EditForm({ criatura }: { criatura: ICriatura }) {
 	const updateCreatureByID = updateCreature.bind(null, criatura.id);
 
 	return (
-		<form
-			action={updateCreatureByID}
-		>
+		<form action={updateCreatureByID}>
 			<h3 className={`title ${style.textCenter}`}>
-				Creador de criaturas mágicas
+				Editor de criaturas mágicas
 			</h3>
 
 			<div className={style.formContent}>
@@ -36,7 +34,7 @@ export default function EditForm({ criatura }: { criatura: ICriatura }) {
 
 				{/* TIPO */}
 				<div className='form-element'>
-					<label htmlFor='tipo'>Rol</label>
+					<label htmlFor='tipo'>Tipo de criatura</label>
 					<div className='relative'>
 						<ArrowDownIcon className='icon-style icon-position' />
 						<select
@@ -58,7 +56,7 @@ export default function EditForm({ criatura }: { criatura: ICriatura }) {
 
 				{/* NIVEL */}
 				<div className='form-element'>
-					<label htmlFor='nivel'>Correo Mágico</label>
+					<label htmlFor='nivel'>Nivel de poder</label>
 					<div>
 						<input
 							id='nivel'

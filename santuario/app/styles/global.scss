@@ -131,7 +131,7 @@ table {
 }
 /* END */
 
-body{
+body {
 	padding-right: 4rem;
 }
 
@@ -206,6 +206,28 @@ input[type='checkbox'] {
 	}
 }
 
+input[type='radio'] {
+	box-sizing: border-box;
+	width: 16px;
+	height: 16px;
+	margin-right: 6px;
+	padding: 0;
+	border: 1px solid $primary-color;
+	border-radius: 50%;
+	appearance: none;
+
+	&:hover {
+		background-color: rgba($primary-color, 0.2);
+	}
+
+	&:checked {
+		background-size: cover;
+		padding: 2px;
+		background-color: $primary-color;
+		border: 1px solid $dark-color;
+	}
+}
+
 select {
 	appearance: none;
 	background-color: rgba($light-color, 0.05);
@@ -265,13 +287,12 @@ textarea {
 	width: 20px;
 	height: 20px;
 	color: $light-color;
-
 }
 
-.icon-style-alternative{
+.icon-style-alternative {
 	width: 16px;
 	height: 16px;
-	color:white;
+	color: white;
 	margin-left: 8px;
 }
 
