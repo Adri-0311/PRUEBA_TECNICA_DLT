@@ -1,8 +1,13 @@
-import CreatureForm from "@/components/forms/CreateForm";
+import EditForm from '@/components/forms/EditForm';
+import { fetchCriaturaByID } from '@/lib/data';
+import { notFound } from 'next/navigation';
 
+export default async function EditPage({ params }: { params: { id: string } }) {
+	const criatura = await fetchCriaturaByID(params.id);
 
-export default function EditPage() {
-	return (
-		<CreatureForm />
-	);
+	if(!criatura){
+    notFound();
+  }
+
+	return <EditForm criatura={criatura} />;
 }

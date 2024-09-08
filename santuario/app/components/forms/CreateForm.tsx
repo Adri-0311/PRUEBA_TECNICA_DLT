@@ -1,4 +1,5 @@
 import ArrowDownIcon from '@/icons/ArrowDownIcon';
+import { addCreature } from '@/lib/action';
 import Button from '../buttons/Button';
 import style from './crate-edit-form.module.scss';
 
@@ -7,7 +8,7 @@ const tipos = ['Dragón', 'Fénix', 'Golem', 'Grifo', 'Vampiro'];
 export default function CreateForm() {
 	return (
 		<form
-			action=''
+			action={addCreature}
 			// className={`${style.loginForm} `}
 		>
 			<h3 className={`title ${style.textCenter}`}>
@@ -24,6 +25,7 @@ export default function CreateForm() {
 							type='text'
 							name='name'
 							placeholder='Introduce el nombre de la criatura'
+							maxLength={20}
 							required
 						/>
 					</div>
@@ -54,12 +56,14 @@ export default function CreateForm() {
 				{/* NIVEL */}
 				<div className='form-element'>
 					<label htmlFor='nivel'>Correo Mágico</label>
-					<div >
+					<div>
 						<input
 							id='nivel'
 							type='number'
 							name='nivel'
 							placeholder='1'
+							min={1}
+							max={10}
 							required
 						/>
 					</div>
@@ -72,8 +76,9 @@ export default function CreateForm() {
 						<div>
 							<input
 								id='entrenado'
-								type='checkbox'
+								type='radio'
 								name='entrenado'
+								value={1}
 								required
 							/>
 							<span>Sí</span>
@@ -81,8 +86,9 @@ export default function CreateForm() {
 						<div>
 							<input
 								id='entrenado'
-								type='checkbox'
+								type='radio'
 								name='entrenado'
+								value={0}
 								required
 							/>
 							<span>No</span>

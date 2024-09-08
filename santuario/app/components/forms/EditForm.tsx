@@ -1,14 +1,17 @@
 import ArrowDownIcon from '@/icons/ArrowDownIcon';
+import { updateCreature } from '@/lib/action';
+import { ICriatura } from '@/lib/db/models/criatura.model';
 import Button from '../buttons/Button';
 import style from './crate-edit-form.module.scss';
 
 const tipos = ['Dragón', 'Fénix', 'Golem', 'Grifo', 'Vampiro'];
 
-export default function CreateForm() {
+export default function EditForm({ criatura }: { criatura: ICriatura }) {
+	const updateCreatureByID = updateCreature.bind(null, criatura.id);
+
 	return (
 		<form
-			action=''
-			// className={`${style.loginForm} `}
+			action={updateCreatureByID}
 		>
 			<h3 className={`title ${style.textCenter}`}>
 				Creador de criaturas mágicas
@@ -24,6 +27,8 @@ export default function CreateForm() {
 							type='text'
 							name='name'
 							placeholder='Introduce el nombre de la criatura'
+							defaultValue={criatura.name}
+							maxLength={20}
 							required
 						/>
 					</div>
@@ -37,7 +42,7 @@ export default function CreateForm() {
 						<select
 							id='tipo'
 							name='tipo'
-							defaultValue='cuidador'>
+							defaultValue={criatura.tipo}>
 							{tipos.map((tipo, key) => {
 								return (
 									<option
@@ -60,6 +65,9 @@ export default function CreateForm() {
 							type='number'
 							name='nivel'
 							placeholder='1'
+							defaultValue={criatura.nivel}
+							min={1}
+							max={10}
 							required
 						/>
 					</div>
@@ -72,8 +80,10 @@ export default function CreateForm() {
 						<div>
 							<input
 								id='entrenado'
-								type='checkbox'
+								type='radio'
 								name='entrenado'
+								value={1}
+								defaultChecked={criatura.entrenado}
 								required
 							/>
 							<span>Sí</span>
@@ -81,8 +91,10 @@ export default function CreateForm() {
 						<div>
 							<input
 								id='entrenado'
-								type='checkbox'
+								type='radio'
 								name='entrenado'
+								value={0}
+								defaultChecked={!criatura.entrenado}
 								required
 							/>
 							<span>No</span>

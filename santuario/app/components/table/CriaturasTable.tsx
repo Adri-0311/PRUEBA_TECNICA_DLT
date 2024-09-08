@@ -1,14 +1,12 @@
-import { Criatura } from '@/lib/definitions';
-import Search from '../search/Search';
-import FilterForm from '../forms/FilterForm';
-import style from './criaturas-table.module.scss';
+import { fetchCriaturas } from '@/lib/data';
 import { DeleteCreature, UpdateCreature } from '../buttons/ButtonsCriaturas';
+import FilterForm from '../forms/FilterForm';
+import Search from '../search/Search';
+import style from './criaturas-table.module.scss';
 
-export default function CriaturasTabla({
-	criaturas,
-}: {
-	criaturas: Criatura[];
-}) {
+export default async function CriaturasTabla() {
+	const criaturas = await fetchCriaturas();
+
 	return (
 		<div className={style.container}>
 			<FilterForm />
@@ -28,7 +26,7 @@ export default function CriaturasTabla({
 						{criaturas?.map((criatura) => {
 							return (
 								<tr key={criatura.id}>
-									<td>{criatura.nombre}</td>
+									<td>{criatura.name}</td>
 									<td>{criatura.tipo}</td>
 									<td>{criatura.nivel}</td>
 									<td>{criatura.entrenado ? 'Sí' : 'No'}</td>
