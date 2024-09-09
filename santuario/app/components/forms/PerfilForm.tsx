@@ -1,10 +1,44 @@
 import ArrowDownIcon from '@/icons/ArrowDownIcon';
+import { updateUser } from '@/lib/action';
+import { IUsuario } from '@/lib/db/models/usuario.model';
 import style from './perfil-form.module.scss';
 
-export default function PerfilForm() {
+export default function PerfilForm({ user }: { user: IUsuario | undefined }) {
+	const updateUserByID = updateUser.bind(null, user?.id);
+
+	const handleKeyDownTextArea = (
+		e: React.KeyboardEvent<HTMLTextAreaElement>
+	) => {
+		if (
+			(e.ctrlKey || e.metaKey) &&
+			(e.key === 'Enter' || e.key === 'NumpadEnter')
+		) {
+			e.preventDefault();
+			e.currentTarget.form?.requestSubmit();
+		}
+	};
+	const handleKeyDownInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
+		if (
+			(e.ctrlKey || e.metaKey) &&
+			(e.key === 'Enter' || e.key === 'NumpadEnter')
+		) {
+			e.preventDefault();
+			e.currentTarget.form?.requestSubmit();
+		}
+	};
+	const handleKeyDownSelect = (e: React.KeyboardEvent<HTMLSelectElement>) => {
+		if (
+			(e.ctrlKey || e.metaKey) &&
+			(e.key === 'Enter' || e.key === 'NumpadEnter')
+		) {
+			e.preventDefault();
+			e.currentTarget.form?.requestSubmit();
+		}
+	};
+
 	return (
 		<form
-			action=''
+			action={updateUserByID}
 			className={style.perfilForm}>
 			{/* NAME */}
 			<div className='form-element'>
@@ -15,6 +49,8 @@ export default function PerfilForm() {
 						type='name'
 						name='name'
 						placeholder='Introduce tu nombre mágico'
+						value={user?.name}
+						onKeyDown={handleKeyDownInput}
 						required
 					/>
 				</div>
@@ -29,6 +65,8 @@ export default function PerfilForm() {
 						type='email'
 						name='email'
 						placeholder='tunombre@santuario.com'
+						value={user?.email}
+						onKeyDown={handleKeyDownInput}
 						required
 					/>
 				</div>
@@ -43,7 +81,8 @@ export default function PerfilForm() {
 						id='rol'
 						name='rol'
 						className=''
-						defaultValue='cuidador'
+						defaultValue={user ? user.rol : 'cuidador'}
+						onKeyDown={handleKeyDownSelect}
 						aria-describedby=''>
 						<option value='cuidador'>Cuidador</option>
 						<option value='maestro'>Maestro</option>
@@ -58,7 +97,10 @@ export default function PerfilForm() {
 					<textarea
 						id='description'
 						name='description'
-						placeholder='Añade tu descripción'></textarea>
+						placeholder='Añade tu descripción'
+						onKeyDown={handleKeyDownTextArea}>
+						{user?.descripcion}
+					</textarea>
 				</div>
 			</div>
 		</form>

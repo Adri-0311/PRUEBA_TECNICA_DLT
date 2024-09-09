@@ -89,3 +89,37 @@ export async function deleteCreature(id: string) {
 
 	revalidatePath('/criaturas');
 }
+
+
+/**
+ * Update usuario data from santuario DB
+ *
+ * @param id
+ * @param formData
+ * @returns
+ */
+export async function updateUser(id: string, formData: FormData) {
+	// Connect with MongoDB
+	await dbConnect();
+
+	// Extracting content from formData
+	const name = formData.get('name');
+	const email = formData.get('email');
+	const rol = formData.get('rol');
+	const descripcion = formData.get('descripcion');
+
+	try {
+		// Update creature by id
+		const res = await criaturaModel.updateOne(
+			{ _id: id },
+			{ name, email, rol, descripcion }
+		);
+
+		console.log('User updated: ', res.acknowledged ? 'YES' : 'NO');
+	} catch (error) {
+		console.log(error);
+		return { message: 'Error creating creature in the DB' };
+	}
+
+	revalidatePath('/perfil');
+}

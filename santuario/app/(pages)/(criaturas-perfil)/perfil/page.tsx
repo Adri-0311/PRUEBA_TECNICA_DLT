@@ -1,7 +1,8 @@
 import PerfilForm from '@/components/forms/PerfilForm';
-import Image from 'next/image';
+import { fetchUserByID } from '@/lib/data';
 
-export default function PerfilPage() {
+export default async function PerfilPage() {
+	const user = await fetchUserByID('id');
 	return (
 		<>
 			<div className='header'>
@@ -11,7 +12,7 @@ export default function PerfilPage() {
 					información de tu perfil.
 				</p>
 			</div>
-			<PerfilForm />
+			<PerfilForm user={user} />
 		</>
 	);
 }

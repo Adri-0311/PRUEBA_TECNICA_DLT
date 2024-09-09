@@ -3,7 +3,6 @@
 import { useSearchParams } from 'next/navigation';
 import Button from '../buttons/Button';
 import style from './filter-form.module.scss';
-import { useState } from 'react';
 
 export default function FilterForm({
 	tiposCriatura,

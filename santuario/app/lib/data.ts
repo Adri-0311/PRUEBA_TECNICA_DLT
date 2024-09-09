@@ -3,6 +3,7 @@ import criaturaModel, { ICriatura } from './db/models/criatura.model';
 import tipoCriaturaModel, {
 	ITipoCriatura,
 } from './db/models/tipoCriatura.model';
+import usuarioModel, { IUsuario } from './db/models/usuario.model';
 
 export async function fetchTiposCriaturas() {
 	// Connect with MongoDB
@@ -75,6 +76,20 @@ export async function fetchFilteredCriaturas(query: string, tipos: string) {
 	} catch (error) {
 		console.log('Data base error:', error);
 		// throw new Error('Failed to fetch filtered criatures.');
+	}
+}
+
+export async function fetchUserByID(id: string) {
+	// Connect with MongoDB
+	await dbConnect();
+
+	try {
+		const usuario = await usuarioModel.findOne<IUsuario>({ _id: id });
+
+		return usuario as IUsuario;
+	} catch (error) {
+		console.log('Data base error:', error);
+		// throw new Error('Failed to fetch criature data by id.');
 	}
 }
 
