@@ -10,7 +10,6 @@ export async function fetchTiposCriaturas() {
 
 	try {
 		const tipos = await tipoCriaturaModel.find<ITipoCriatura>();
-		console.log('Get tipos criaturas from DB:', tipos);
 
 		return tipos;
 	} catch (error) {
@@ -25,7 +24,6 @@ export async function fetchCriaturas() {
 
 	try {
 		const criaturas = await criaturaModel.find<ICriatura>();
-		console.log('Get criaturas from DB:', criaturas);
 
 		return criaturas;
 	} catch (error) {
@@ -41,8 +39,6 @@ export async function fetchCriaturaByID(id: string) {
 	try {
 		const criatura = await criaturaModel.findOne<ICriatura>({ _id: id });
 
-		console.log('fetchCriaturaByID:', criatura);
-
 		return criatura as ICriatura;
 	} catch (error) {
 		console.log('Data base error:', error);
@@ -57,12 +53,28 @@ export async function fetchCountCriaturas() {
 	try {
 		const count = await criaturaModel.countDocuments({});
 
-		console.log('fetchCountCriaturas:', count);
-
 		return count;
 	} catch (error) {
 		console.log('Data base error:', error);
 		// throw new Error('Failed to fetch criatures count.');
+	}
+}
+
+export async function fetchFilteredCriaturas(query: string, tipos: string) {
+	await dbConnect();
+
+	try {
+		const filtered = await criaturaModel.find<ICriatura>({
+			name: new RegExp(query, 'i'),
+			tipo: tipos === '' ? new RegExp(query, 'i') : tipos,
+		});
+
+		console.log('fetchFilteredCriaturas:', { query, tipos: tipos, filtered });
+
+		return filtered;
+	} catch (error) {
+		console.log('Data base error:', error);
+		// throw new Error('Failed to fetch filtered criatures.');
 	}
 }
 
