@@ -67,7 +67,7 @@ export async function fetchFilteredCriaturas(query: string, tipos: string) {
 	try {
 		const filtered = await criaturaModel.find<ICriatura>({
 			name: new RegExp(query, 'i'),
-			tipo: tipos === '' ? new RegExp(query, 'i') : tipos,
+			// tipo: tipos === '' ? new RegExp(query, 'i') : tipos,
 		});
 
 		console.log('fetchFilteredCriaturas:', { query, tipos: tipos, filtered });
